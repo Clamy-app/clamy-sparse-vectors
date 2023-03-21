@@ -34,7 +34,7 @@ def get_sparse_embedding(text: str) -> SparseEmbedding:
     """
     Get the sparse vector representation of a text
     """
-    input_ids = tokenizer(text, return_tensors='pt')
+    input_ids = tokenizer(text, return_tensors='pt',  truncation=True, max_length=512)
 
     # now compute the document representation
     with torch.no_grad():
